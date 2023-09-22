@@ -1,0 +1,74 @@
+<odoo>
+
+    <data>
+    
+    
+        <record id="bettaerp_weight_barcode_listado_form" model="ir.ui.view">
+            <field name="name">bettaerp</field>
+            <field name="model">bettaerp_weight_barcode.productlistbarcode</field>
+            <field name="arch" type="xml">
+                <form>
+                    
+                        <group>
+                            <!--<field name="name"/>-->
+                            <field name="archivo"/>
+                           
+                        </group>           
+                        <footer>
+                            <button name="barcode_list" string="Iniciar Proceso" class="oe_right oe_highlight" type="object"/>
+                            <button special="cancel" string="Cancelar" class="oe_rigth"/>
+
+                        </footer>
+
+                    
+                    
+                </form>    
+
+            </field>
+        </record>
+         
+
+        <!--<record model="ir.actions.act_window" id="odoo_view_advanced_custom_item">
+            <field name="name">Producto</field>
+            <field name="res_model">bettaerp_weight_barcode.productlistbarcode</field>
+            <field name="view_mode">form</field>
+        </record>-->
+
+         
+        <record  id="betta_eess_app_accion_list_barcode" model="ir.actions.act_window">
+            <field name="name">Listado de Codigos de Barra</field>
+            <field name="res_model">bettaerp_weight_barcode.productlistbarcode</field>
+            <field name="view_mode">form</field> 
+            <field name="type">ir.actions.act_window</field> 
+            <filed name="view_id" ref="bettaerp_weight_barcode_listado_form"/>
+            
+            <!--<field name="target">current</field>-->
+            
+        </record>
+    
+
+        
+        <menuitem id="menu_product_list_barcode_peso" 
+            name="Barcode Peso (TXT - Balanzas)" 
+            parent="sale.product_menu_catalog" 
+            action="betta_eess_app_accion_list_barcode" 
+            sequence='5'/>
+
+
+        <!--<menuitem id="menu_product_list_barcode_peso" 
+            name="Barcode Peso (TXT - Balanzas)" 
+            parent="product_menu_catalog" 
+            action="bettaerp_weight_barcode.betta_eess_app_accion_list_barcode" 
+            groups="product.group_product_pricelist" 
+            sequence="5"/>-->
+
+    </data>    
+
+    
+</odoo>
+ 
+ 
+ 
+ 
+ 
+ 

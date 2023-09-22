@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+        
+        <record id="product_template_form_view_in3" model="ir.ui.view">
+            <field name="name">product.product.form.in3</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='categ_id']" position="after">
+                    <field name="weight_barcode"/>
+                    <!--<field name="tipo_vencimiento" attrs="{'invisible':[('weight_barcode','=',False)]}"/>-->
+                    <p class="oe_grey oe_edit_only">
+                        <strong>Warning</strong>: 
+                            Si activa Balanzas debe ademas activar  en la solapa Inventario
+                            la Fecha de caducidad del producto.
+                    </p>
+                    <field name="tipo_vencimiento" widget="radio" nolabel="0" attrs="{'invisible':[('weight_barcode','=',False)]}"/>
+                    <!--<field name="categoria_padre" attrs="{'invisible':[('weight_barcode','=',False)]}"/>-->
+                    <field name="pesable" widget="radio" nolabel="0" attrs="{'invisible':[('weight_barcode','=',False)]}"/>
+                    <field name="tara" attrs="{'invisible':[('weight_barcode','=',False)]}"/>
+                    <field name="marca" attrs="{'invisible':[('weight_barcode','=',False)]}"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <!--<record id="product_template_tree_view_in3" model="ir.ui.view">
+            <field name="name">product.product.tree.in3</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_tree_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='active']" position="after">
+                    <field name="weight_barcode"/>
+                    
+                </xpath>-->
+                <!--<xpath expr="//header" position="inside">
+                    <button string="Codigos de barra Balanzas - list" type="object" name="download_txt"/>
+                    
+
+
+                </xpath>
+            </field>
+        </record>-->
+    
+
+        <record id="product_template_view_search1" model="ir.ui.view">
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_search_view"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//filter[@name='filter_to_purchase']" position="after">
+                    <filter string='Productos Balanza' name="pesables" domain="[('weight_barcode','=',True)]"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="customer_index_action" model="ir.actions.act_url">
+            <field name="name">Listado Productos Balanza</field>
+            <field name="url">/home</field>
+            <field name="target">self</field>
+        </record>
+    
+
+
+        <menuitem id="menu_balanzas_productos" 
+            name="Listado Productos Balanza" 
+            parent="stock.menu_stock_root"
+            action="customer_index_action" 
+            sequence="10"/>
+
+
+
+    </data>
+</odoo>

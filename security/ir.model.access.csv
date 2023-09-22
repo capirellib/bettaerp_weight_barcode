@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+bettaerp_weight_barcode,bettaerp_weight_barcode,model_bettaerp_weight_barcode,base.group_user,1,1,1,1
+bettaerp_weight_barcode,bettaerp_weight_barcode,model_bettaerp_weight_barcode,base.group_user,1,1,1,1
