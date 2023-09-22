@@ -22,12 +22,12 @@ class bettaerp_weight_barcode(http.Controller):
             _logger.warning(rec.use_expiration_date)
             
             _logger.warning(rec.tracking)
-            if rec.use_expiration_date (rec.tracking == 'lot') :
-            
-                regis = produ + divisortxt + produ_cero + divisortxt + rec.name + divisortxt + str(rec.list_price) + divisortxt + str(rec.pesable) + divisortxt + str(rec.expiration_time) + divisortxt + str(rec.categ_id.id) + divisortxt + str(rec.tara) + divisortxt+ str(rec.marca) + divisortxt + str(rec.tipo_vencimiento)
-                regis_1 +=  regis + "\n"
+            #if rec.tracking == 'lot' :
+            if rec.use_expiration_date and rec.tracking == 'lot' :
+                    regis = produ + divisortxt + produ_cero + divisortxt + rec.name + divisortxt + str(rec.list_price) + divisortxt + str(rec.pesable) + divisortxt + str(rec.expiration_time) + divisortxt + str(rec.categ_id.id) + divisortxt + str(rec.tara) + divisortxt+ str(rec.marca) + divisortxt + str(rec.tipo_vencimiento)
+                    regis_1 +=  regis + "\n"
            
-                _logger.warning(regis)
+                    _logger.warning(regis)
                 
             #    else :
             #        valor = 'El producto '+' '+ rec.name + ' '+ 'no tiene fecha de vencimiento corrija antes de continuar.'        
